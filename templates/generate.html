@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Generera CV | CV AI</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-inner">
+
+            <div class="brand">
+                CV<span>AI</span>
+            </div>
+
+            <div class="nav-links">
+
+                <a href="/" class="nav-link">
+                    Min profil
+                </a>
+
+                <a href="/generate" class="nav-link active">
+                    Generera CV
+                </a>
+
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- MAIN -->
+    <main class="container">
+
+        <!-- HEADER -->
+        <header class="page-header">
+
+            <div>
+                <p class="eyebrow">ANSÖKAN</p>
+
+                <h1>Generera CV</h1>
+
+                <p class="page-description">
+                    Klistra in jobbannonsen nedan. Din sparade profil används
+                    för att välja ut den erfarenhet, utbildning och kompetens
+                    som är mest relevant för tjänsten.
+                </p>
+            </div>
+
+        </header>
+
+
+        <!-- JOBBANNONS -->
+        <section class="profile-section">
+
+            <div class="section-title">
+
+                <div>
+                    <p class="section-number">01</p>
+                    <h2>Jobbannons</h2>
+                </div>
+
+                <p class="section-description">
+                    Kopiera gärna hela annonsen, inklusive arbetsuppgifter,
+                    krav och meriterande kompetenser.
+                </p>
+
+            </div>
+
+
+            <div class="generate-form">
+
+                <div class="form-group">
+
+                    <label for="job-ad">
+                        Jobbannons
+                    </label>
+
+                    <textarea
+                        id="job-ad"
+                        class="job-ad-textarea"
+                        placeholder="Klistra in jobbannonsen här..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="generate-actions">
+
+                    <span
+                        id="generate-status"
+                        class="generate-status"
+                    ></span>
+
+                    <button
+                        id="generate-button"
+                        class="save-button"
+                        type="button"
+                    >
+                        Generera CV
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTAT -->
+        <section
+            id="result-section"
+            class="profile-section hidden"
+        >
+
+            <div class="section-title">
+
+                <div>
+                    <p class="section-number">02</p>
+                    <h2>Din anpassade ansökan</h2>
+                </div>
+
+                <p class="section-description">
+                    AI:n har analyserat jobbannonsen och valt ut relevant
+                    information från din profil.
+                </p>
+
+            </div>
+
+
+            <!-- CV + PERSONLIGT BREV -->
+            <div class="result-grid">
+
+                <!-- CV -->
+                <div class="result-box">
+
+                    <p class="result-label">
+                        CV
+                    </p>
+
+                    <div
+                        id="cv-result"
+                        class="cv-preview"
+                    ></div>
+                    <div class="download-actions">
+
+                        <button
+                            id="download-cv-button"
+                            class="save-button"
+                            type="button"
+                        >
+                            Ladda ner CV som PDF
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PERSONLIGT BREV -->
+                <div class="result-box">
+
+                    <p class="result-label">
+                        Personligt brev
+                    </p>
+
+                    <pre id="letter-result"></pre>
+
+                </div>
+
+            </div>
+
+
+            <!-- MOTIVERING -->
+            <div class="result-box motivation-box">
+
+                <p class="result-label">
+                    AI-motivering
+                </p>
+
+                <pre id="motivation-result"></pre>
+
+
+                <!-- MATCHADE KRAV -->
+                <div class="matched-section">
+
+                    <p class="result-label">
+                        Matchade krav
+                    </p>
+
+                    <div
+                        id="matched-requirements"
+                        class="matched-requirements"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script
+        src="{{ url_for('static', filename='generate.js') }}"
+    ></script>
+
+</body>
+</html>

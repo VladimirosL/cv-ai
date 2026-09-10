@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min profil | CV AI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-inner">
+            <div class="brand">CV<span>AI</span></div>
+
+            <div class="nav-links">
+                <a href="/" class="nav-link active">Min profil</a>
+                <a href="/generate" class="nav-link">Generera CV</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="container">
+
+        <header class="page-header">
+            <div>
+                <p class="eyebrow">PROFIL</p>
+                <h1>Min profil</h1>
+                <p class="page-description">
+                    Samla din bakgrund, erfarenhet och kompetens.
+                    Informationen används senare för att skapa anpassade CV:n.
+                </p>
+            </div>
+
+            <div class="profile-status">
+                <span class="status-dot"></span>
+                Profilutkast
+            </div>
+        </header>
+
+
+        <!-- 01 Grunduppgifter -->
+        <section class="profile-section">
+
+            <div class="section-title">
+                <div>
+                    <p class="section-number">01</p>
+                    <h2>Grunduppgifter</h2>
+                </div>
+
+                <p class="section-description">
+                    Kontaktinformation som används i ditt CV.
+                </p>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="name">Namn</label>
+                    <input id="name" type="text" placeholder="Förnamn Efternamn">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-post</label>
+                    <input id="email" type="email" placeholder="namn@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefon</label>
+                    <input id="phone" type="text" placeholder="070-123 45 67">
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Ort</label>
+                    <input id="location" type="text" placeholder="Göteborg">
+                </div>
+
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn</label>
+                    <input id="linkedin" type="text" placeholder="linkedin.com/in/...">
+                </div>
+
+                <div class="form-group">
+                    <label for="github">GitHub / Portfolio</label>
+                    <input id="github" type="text" placeholder="github.com/...">
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 02 Arbetslivserfarenhet -->
+        <section class="profile-section">
+
+            <div class="section-header">
+
+                <div class="section-title">
+                    <div>
+                        <p class="section-number">02</p>
+                        <h2>Arbetslivserfarenhet</h2>
+                    </div>
+
+                    <p class="section-description">
+                        Lägg till tidigare roller och relevant erfarenhet.
+                    </p>
+                </div>
+
+                <button id="add-experience-button" class="add-button">
+                    + Lägg till erfarenhet
+                </button>
+
+            </div>
+
+            <div id="experience-list" class="item-list">
+                <div id="experience-empty" class="empty-state">
+                    <p>Ingen arbetserfarenhet tillagd ännu.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- 03 Utbildning -->
+        <section class="profile-section">
+
+            <div class="section-header">
+
+                <div class="section-title">
+                    <div>
+                        <p class="section-number">03</p>
+                        <h2>Utbildning</h2>
+                    </div>
+
+                    <p class="section-description">
+                        Lägg till utbildningar och relevanta kurser.
+                    </p>
+                </div>
+
+                <button id="add-education-button" class="add-button">
+                    + Lägg till utbildning
+                </button>
+
+            </div>
+
+            <div id="education-list" class="item-list">
+                <div id="education-empty" class="empty-state">
+                    <p>Ingen utbildning tillagd ännu.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- 04 Projekt -->
+        <section class="profile-section">
+
+            <div class="section-header">
+
+                <div class="section-title">
+                    <div>
+                        <p class="section-number">04</p>
+                        <h2>Projekt</h2>
+                    </div>
+
+                    <p class="section-description">
+                        Lägg till projekt som visar vad du har byggt.
+                    </p>
+                </div>
+
+                <button id="add-project-button" class="add-button">
+                    + Lägg till projekt
+                </button>
+
+            </div>
+
+            <div id="project-list" class="item-list">
+                <div id="project-empty" class="empty-state">
+                    <p>Inga projekt tillagda ännu.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- 05 Tekniska färdigheter -->
+        <section class="profile-section">
+
+            <div class="section-header">
+
+                <div class="section-title">
+                    <div>
+                        <p class="section-number">05</p>
+                        <h2>Tekniska färdigheter</h2>
+                    </div>
+
+                    <p class="section-description">
+                        Tekniker, språk, verktyg och plattformar du kan arbeta med.
+                    </p>
+                </div>
+
+                <button id="add-skill-button" class="add-button">
+                    + Lägg till färdighet
+                </button>
+
+            </div>
+
+            <div id="skill-list" class="tag-list">
+                <div id="skill-empty" class="empty-state">
+                    <p>Inga tekniska färdigheter tillagda ännu.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- 06 Språk -->
+        <section class="profile-section">
+
+            <div class="section-header">
+
+                <div class="section-title">
+                    <div>
+                        <p class="section-number">06</p>
+                        <h2>Språk</h2>
+                    </div>
+
+                    <p class="section-description">
+                        Språk och kunskapsnivå.
+                    </p>
+                </div>
+
+                <button id="add-language-button" class="add-button">
+                    + Lägg till språk
+                </button>
+
+            </div>
+
+            <div id="language-list" class="item-list">
+                <div id="language-empty" class="empty-state">
+                    <p>Inga språk tillagda ännu.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- 07 Körkort -->
+        <section class="profile-section">
+
+            <div class="section-header">
+
+                <div class="section-title">
+                    <div>
+                        <p class="section-number">07</p>
+                        <h2>Körkort</h2>
+                    </div>
+
+                    <p class="section-description">
+                        Lägg till körkortsbehörigheter.
+                    </p>
+                </div>
+
+                <button id="add-license-button" class="add-button">
+                    + Lägg till körkort
+                </button>
+
+            </div>
+
+            <div id="license-list" class="tag-list">
+                <div id="license-empty" class="empty-state">
+                    <p>Inga körkort tillagda ännu.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- 08 Certifikat -->
+        <section class="profile-section">
+
+            <div class="section-header">
+
+                <div class="section-title">
+                    <div>
+                        <p class="section-number">08</p>
+                        <h2>Certifikat</h2>
+                    </div>
+
+                    <p class="section-description">
+                        Lägg till certifieringar och utfärdare.
+                    </p>
+                </div>
+
+                <button id="add-certificate-button" class="add-button">
+                    + Lägg till certifikat
+                </button>
+
+            </div>
+
+            <div id="certificate-list" class="item-list">
+                <div id="certificate-empty" class="empty-state">
+                    <p>Inga certifikat tillagda ännu.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <div class="save-container">
+
+            <div>
+                <p class="save-label">Profilstatus</p>
+                <p class="save-hint">
+                    Nästa steg blir att spara profilen permanent i backend/databas.
+                </p>
+            </div>
+
+            <button id="save-profile-button" class="save-button">
+                Spara profil
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- GENERISK MODAL -->
+    <div id="modal" class="modal hidden">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2 id="modal-title">Lägg till</h2>
+                <button id="modal-close" type="button">×</button>
+            </div>
+
+            <div id="modal-fields"></div>
+
+            <div class="modal-actions">
+
+                <button id="modal-cancel" class="secondary-button" type="button">
+                    Avbryt
+                </button>
+
+                <button id="modal-save" class="save-button" type="button">
+                    Spara
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
